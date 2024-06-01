@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useSyncExternalStore } from "react";
-
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import service from "../appwrite/config";
-import { Container, PostCard } from "../components";
+import { Container, Loader, PostCard } from "../components";
 function Home() {
   console.log("In Home page")
+  const authStatus = useSelector((state) => state.auth.status);
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     service.getPosts([]).then((posts) => {
@@ -12,14 +13,14 @@ function Home() {
       }
     });
   }, []);
-  if (posts.length == 0) {
+  if (posts.length == 0 ) {
     return (
-      <div className="w-full py-8 mt-4 text-center">
+      <div className="w-full  text-center">
         <Container>
           <div className="flex flex-wrap">
-            <div className="p-2 w-full">
+            <div className="w-full">
               <h1 className="text-2xl font-bold hover:text-gray-500">
-                Login to read posts
+                {authStatus ? <Loader></Loader> : 'Login to read posts'}
               </h1>
             </div>
           </div>

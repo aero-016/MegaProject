@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import authService from "./appwrite/auth";
 import { login, logout } from "./store/authSlice";
-import {Header,Footer} from "./components"
-import {Outlet} from "react-router-dom"
+import { Header, Footer } from "./components";
+import { Outlet } from "react-router-dom";
 import "./App.css";
 
 function App() {
@@ -13,28 +13,29 @@ function App() {
     authService
       .getCurrentUser()
       .then((userData) => {
-        if (userData) { dispatch(login({ userData }));}
-        else dispatch(logout());
+        if (userData) {
+          console.log("userData in main.jsx :", userData);
+          dispatch(login({ userData }));
+        } else dispatch(logout());
       })
       .catch((error) => {
         console.log("error while fetching current User: ", error);
       })
       .finally(() => setLoading(false));
   }, []);
-  return !loading ?  (
+  return !loading ? (
     <>
-      <div className="min-h-screen flex flex-wrap content-between  bg-gray-500">
-        <div className="w-full-block">
-         <Header /> 
-         <main>
-  <Outlet/>
-         </main>
-        <Footer/>
-          
+      <div className="min-h-screen flex flex-wrap ">
+        <div className="w-full block">
+          <Header />
+          <main className="min-h-screen">
+            <Outlet />
+          </main>
+          <Footer />
         </div>
       </div>
     </>
-  ):(null);
+  ) : null;
 }
 
 export default App;

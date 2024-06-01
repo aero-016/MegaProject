@@ -13,26 +13,27 @@ export class Service {
     this.bucket = new Storage(this.client);
   }
 
-  async createPost({ title, slug, content, featuedImage, status, userId }) {
+  async createPost({ title, slug, content, featuredImage, status, userId }) {
     try {
       return await this.databases.createDocument(
         conf.appWriteDatabaseId,
         conf.appWriteCollectionId,
         slug,
-        { title, content, featuedImage, status, userId }
+        { title, content, featuredImage, status, userId }
       );
     } catch (error) {
       console.log("App Write :: create Post Error", error);
     }
   }
 
-  async updatePost(slug, { title, content, featuedImage, status }) {
+  async updatePost(slug, { title, content, featuredImage, status }) {
+    console.log("Featured image in UpdatePost: ",featuredImage)
     try {
       return await this.databases.updateDocument(
         conf.appWriteDatabaseId,
         conf.appWriteCollectionId,
         slug,
-        { title, content, featuedImage, status }
+        { title, content, featuredImage, status }
       );
     } catch (error) {
       console.log("App Write :: Update Post Error", error);
