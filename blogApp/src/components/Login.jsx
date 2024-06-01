@@ -75,7 +75,7 @@ function Login() {
                 required: true,
               })}
             />
-            <Button type="submit" className="w-full bg-black">
+            <Button type="submit" className="w-full" bgColor="bg-black">
               Sign in
             </Button>
           </div>

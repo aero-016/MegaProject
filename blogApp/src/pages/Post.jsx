@@ -43,7 +43,7 @@ export default function Post() {
             <div className="w-full flex flex-col items-center mb-6 relative border rounded-xl p-4  bg-white">
                 <h1 className="text-4xl font-extrabold text-gray-900 mb-4">{post.title}</h1>
 
-                <div className="relative w-full flex justify-center mb-6">
+                <div className="relative w-full flex flex-wrap justify-center mb-6">
                     <img
                         src={appwriteService.getFilePreview(post.featuredImage)}
                         alt={post.title}
@@ -51,13 +51,13 @@ export default function Post() {
                     />
 
                     {isAuthor && (
-                        <div className="absolute right-4 top-4 flex space-x-2">
+                        <div className="absolute right-4 top-4 flex  space-x-2">
                             <Link to={`/edit-post/${post.$id}`}>
-                                <Button bgColor="bg-green-500" className="mr-2">
+                                <Button bgColor="bg-black" className="mr-2">
                                     Edit
                                 </Button>
                             </Link>
-                            <Button bgColor="bg-red-500" onClick={deletePost}>
+                            <Button bgColor="bg-red-600" onClick={deletePost}>
                                 Delete
                             </Button>
                         </div>

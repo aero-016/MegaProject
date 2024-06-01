@@ -4,7 +4,7 @@ export default function Loader() {
   return (
     <div className="w-full py-8 ">
       <Container>
-        <div className="flex flex-wrap gap-4 animate-pulse">
+        <div className="flex flex-wrap justify-center gap-4 animate-pulse">
           {Array.from({ length: 8 }).map((_, index) => (
             <div class="flex flex-col bg-neutral-300 w-72 h-64 animate-pulse rounded-xl p-4 gap-4" key={index}>
               <div class="bg-neutral-400/50 w-full h-32 animate-pulse rounded-md"></div>
