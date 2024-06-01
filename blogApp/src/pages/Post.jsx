@@ -40,7 +40,7 @@ export default function Post() {
     return post ? (
         <div className="py-3 bg-gray-100 min-h-screen">
         <Container>
-            <div className="w-full flex flex-col items-center mb-6 relative border rounded-xl p-4  bg-white">
+            <div className="w-full flex flex-col items-center mb-6 relative border rounded-xl p-4 bg-white">
                 <h1 className="text-4xl font-extrabold text-gray-900 mb-4">{post.title}</h1>
 
                 <div className="relative w-full flex flex-wrap justify-center mb-6">

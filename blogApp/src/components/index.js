@@ -13,4 +13,5 @@ import Button from "./Button"
 import Input from "./Input"
 import Select from "./Select"
 import Loader from "./Loader"
-export { Header, Footer, Container, Logo, LogoutButton,RTE ,Signup,Login,PostForm,PostCard,AuthLayout,Button,Input,Select,Loader};
+import ScrollToTop from "./ScrollToTop";
+export { Header, Footer, Container, Logo, LogoutButton,RTE ,Signup,Login,PostForm,PostCard,AuthLayout,Button,Input,Select,Loader,ScrollToTop};
